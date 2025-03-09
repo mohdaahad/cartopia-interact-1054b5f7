@@ -1,12 +1,42 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useEffect } from 'react';
+import Navbar from '@/components/Layout/Navbar';
+import Footer from '@/components/Layout/Footer';
+import HeroBanner from '@/components/Home/HeroBanner';
+import CategorySection from '@/components/Home/CategorySection';
+import FeaturedProducts from '@/components/Home/ProductSection';
+import DealsSection from '@/components/Home/DealsSection';
+import { toast } from 'sonner';
 
 const Index = () => {
+  useEffect(() => {
+    // Show a welcome toast when the app loads
+    toast.success('Welcome to QuickCart!', {
+      description: 'Fresh groceries delivered in minutes.'
+    });
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      
+      <main className="flex-grow container mx-auto px-4 py-6">
+        <HeroBanner />
+        
+        <div className="mt-8">
+          <CategorySection />
+        </div>
+        
+        <div className="mt-4">
+          <FeaturedProducts />
+        </div>
+        
+        <div className="mt-6">
+          <DealsSection />
+        </div>
+      </main>
+      
+      <Footer />
     </div>
   );
 };
