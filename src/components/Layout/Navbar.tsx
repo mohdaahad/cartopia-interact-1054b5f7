@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Search, User, Menu, X } from 'lucide-react';
+import { ShoppingCart, Search, User, Menu, X, ShoppingBag, ListTree, Percent, Info, Cat as CatIcon } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -39,6 +39,26 @@ const Navbar = () => {
           </Link>
 
           {!isMobile && (
+            <div className="flex items-center space-x-4">
+              <Link to="/shop" className="text-gray-700 hover:text-grocery-primary transition-colors">
+                Shop
+              </Link>
+              <Link to="/categories" className="text-gray-700 hover:text-grocery-primary transition-colors">
+                Categories
+              </Link>
+              <Link to="/deals" className="text-gray-700 hover:text-grocery-primary transition-colors">
+                Deals
+              </Link>
+              <Link to="/about" className="text-gray-700 hover:text-grocery-primary transition-colors">
+                About
+              </Link>
+              <Link to="/cat" className="text-gray-700 hover:text-grocery-primary transition-colors">
+                Cat
+              </Link>
+            </div>
+          )}
+
+          {!isMobile && (
             <div className="relative w-1/3">
               <Input 
                 type="text" 
@@ -50,10 +70,12 @@ const Navbar = () => {
           )}
 
           <div className="hidden md:flex items-center space-x-6">
-            <Button variant="ghost" className="flex items-center space-x-1 p-2">
-              <User className="w-5 h-5" />
-              <span>Account</span>
-            </Button>
+            <Link to="/account">
+              <Button variant="ghost" className="flex items-center space-x-1 p-2">
+                <User className="w-5 h-5" />
+                <span>Account</span>
+              </Button>
+            </Link>
             <Button variant="ghost" className="flex items-center space-x-1 relative p-2">
               <ShoppingCart className="w-5 h-5" />
               <span>Cart</span>
@@ -86,11 +108,35 @@ const Navbar = () => {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
               </div>
               <nav className="flex flex-col space-y-2">
-                <Link to="/categories" className="p-2 hover:bg-gray-100 rounded-md">Categories</Link>
-                <Link to="/deals" className="p-2 hover:bg-gray-100 rounded-md">Deals</Link>
-                <Link to="/account" className="p-2 hover:bg-gray-100 rounded-md">Account</Link>
+                <Link to="/shop" className="p-2 hover:bg-gray-100 rounded-md flex items-center">
+                  <ShoppingBag className="w-4 h-4 mr-2" />
+                  Shop
+                </Link>
+                <Link to="/categories" className="p-2 hover:bg-gray-100 rounded-md flex items-center">
+                  <ListTree className="w-4 h-4 mr-2" />
+                  Categories
+                </Link>
+                <Link to="/deals" className="p-2 hover:bg-gray-100 rounded-md flex items-center">
+                  <Percent className="w-4 h-4 mr-2" />
+                  Deals
+                </Link>
+                <Link to="/about" className="p-2 hover:bg-gray-100 rounded-md flex items-center">
+                  <Info className="w-4 h-4 mr-2" />
+                  About
+                </Link>
+                <Link to="/cat" className="p-2 hover:bg-gray-100 rounded-md flex items-center">
+                  <CatIcon className="w-4 h-4 mr-2" />
+                  Cat
+                </Link>
+                <Link to="/account" className="p-2 hover:bg-gray-100 rounded-md flex items-center">
+                  <User className="w-4 h-4 mr-2" />
+                  Account
+                </Link>
                 <Link to="/cart" className="p-2 hover:bg-gray-100 rounded-md flex justify-between items-center">
-                  Cart
+                  <div className="flex items-center">
+                    <ShoppingCart className="w-4 h-4 mr-2" />
+                    Cart
+                  </div>
                   <span className="bg-grocery-secondary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                     0
                   </span>
