@@ -3,7 +3,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ShoppingBagX, Home } from "lucide-react";
+import { ShoppingBag, Home, AlertCircle } from "lucide-react";
 
 const NotFound = () => {
   const location = useLocation();
@@ -19,7 +19,7 @@ const NotFound = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-100">
       <div className="text-center max-w-md mx-auto p-8 rounded-xl">
         <div className="inline-flex items-center justify-center w-24 h-24 bg-red-50 rounded-full mb-8 animate-bounce-in">
-          <ShoppingBagX className="w-12 h-12 text-grocery-secondary" />
+          <AlertCircle className="w-12 h-12 text-grocery-secondary" />
         </div>
         <h1 className="text-6xl font-bold text-gray-900 mb-4">404</h1>
         <p className="text-xl text-gray-600 mb-8">
